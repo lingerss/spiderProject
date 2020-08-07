@@ -12,6 +12,7 @@ ips=pandas.read_sql(
             SELECT remote_Addr ip FROM t_web_visit_log GROUP BY remote_Addr
         ) a WHERE ip NOT IN (SELECT ip FROM t_dim_ip_info);
     """,con=conn)
+print(ips)
 #cursor=conn.cursor;cursor.execute(sql)
 while ips.size!=0:
     ipInfos = []
